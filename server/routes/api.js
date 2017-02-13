@@ -3,7 +3,7 @@ const router = express.Router();
 
 var User = require('../models/users');
 
-/* GET api listing. */
+/* GET api listing.*/
 router.get('/setup', (req, res) => {
    var adminUser = new User();
    adminUser.local.username = 'admin';

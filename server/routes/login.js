@@ -1,4 +1,5 @@
 module.exports = function(app, passport) {
+    // get user
     app.get('/getUser', isLoggedIn, function(req, res) {
         res.json({ user: req.user });
     });
