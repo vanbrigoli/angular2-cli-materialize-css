@@ -16,7 +16,8 @@ p {
 }
 
 .button-collapse {
-  color: #26a69a;
+  color: #444;
+  cursor: pointer;
 }
 
 .parallax-container {

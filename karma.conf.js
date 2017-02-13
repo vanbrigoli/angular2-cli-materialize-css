@@ -12,6 +12,8 @@ module.exports = function (config) {
       require('angular-cli/plugins/karma')
     ],
     files: [
+      { pattern: './node_modules/jquery/dist/jquery.js', watched: false },
+      { pattern: './node_modules/materialize-css/bin/jquery-2.1.1.min.js', watched: false},
       { pattern: './src/test.ts', watched: false }
     ],
     preprocessors: {
