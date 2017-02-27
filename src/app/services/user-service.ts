@@ -22,16 +22,23 @@ export class UserService {
     let options = new RequestOptions({ headers: headers });
     return this.http.post('/authenticate', body, options)
       .map(res => {
-        return res.json().authenticated;
+        return res.json().status;
       })
       .catch(this.handleError);
   }
 
   getUser() {
+    let name;
+    let rights;
     return this.http.get('/getUser')
       .map(res => {
-        let name = res.json().user.local.username;
-        let rights = res.json().user.local.admin;
+        if(res.json().user.facebook){
+          name = res.json().user.facebook.name;
+          rights = false;
+        }else {
+          name = res.json().user.local.username;
+          rights = res.json().user.local.admin;
+        }
         return new User(name, rights);
       })
       .catch(this.handleError);

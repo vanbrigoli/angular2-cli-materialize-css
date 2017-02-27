@@ -11,7 +11,8 @@ declare var jQuery: any;
 })
 export class MainComponent implements OnInit, AfterViewInit {
   private testName: String = 'Test Only';
-  private unauthorized: Boolean = true;
+  private loggedIn: Boolean = true;
+  private admin: Boolean = false;
 
   constructor(private _elRef: ElementRef, private userService: UserService, private router: Router) { }
 
@@ -21,7 +22,8 @@ export class MainComponent implements OnInit, AfterViewInit {
         .subscribe(
           res => {
             this.testName = res.name;
-            this.unauthorized = !res.admin;
+            this.loggedIn = false;
+            this.admin = res.admin;
           },
           err => {
             console.log('Unauthorized');

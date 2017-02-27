@@ -5,7 +5,7 @@
     <a id="logo-container" href="#" class="brand-logo">Logo</a>
     <ul class="right hide-on-med-and-down">
       <li><a>{{testName}}</a></li>
-      <li [hidden]="unauthorized" (click)="userLogout()"><a >Logout</a></li>
+      <li [hidden]="loggedIn" (click)="userLogout()"><a >Logout</a></li>
     </ul>
 <!--MOBILE VIEW-->
     <ul id="nav-mobile" class="side-nav">

@@ -7,7 +7,7 @@ var User = require('../models/users');
 router.get('/setup', (req, res) => {
    var adminUser = new User();
    adminUser.local.username = 'admin';
-   adminUser.local.password = nick.generateHash('admin');
+   adminUser.local.password = adminUser.generateHash('admin');
    adminUser.local.admin = true;
 
    adminUser.save(function(err) {
