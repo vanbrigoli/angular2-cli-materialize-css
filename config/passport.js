@@ -69,7 +69,6 @@ module.exports = function(passport) {
     // FACEBOOK ================================================================
     // =========================================================================
     passport.use(new FacebookStrategy({
-
         // pull in our app id and secret from our auth.js file
         clientID        : configAuth.facebookAuth.clientID,
         clientSecret    : configAuth.facebookAuth.clientSecret,
@@ -82,7 +81,6 @@ module.exports = function(passport) {
     function(token, refreshToken, profile, done) {
         // asynchronous
         process.nextTick(function() {
-
             // find the user in the database based on their facebook id
             User.findOne({ 'facebook.id' : profile.id }, function(err, user) {
                 // if there is an error, stop everything and return that

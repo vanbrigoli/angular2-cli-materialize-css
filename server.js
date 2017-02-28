@@ -9,7 +9,11 @@ const passport = require('passport');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
+// load database config
 const configDB = require('./config/database.js');
+
+// load up the user model
+var User = require('./server/models/users');
 
 // Get our API routes
 const api = require('./server/routes/api.js');
@@ -18,6 +22,31 @@ const app = express();
 
 // connect to our database
 mongoose.connect(configDB.url);
+
+// save admin user at start
+User.findOne({ 'local.username' :  'admin' }, function(err, user) {
+            // if there are any errors, return the error before anything else
+            if (err)
+                console.error('Error', err);
+
+            // if no user is found
+            if (!user){
+              var adminUser = new User();
+
+              adminUser.local.username = 'admin';
+              adminUser.local.password = adminUser.generateHash('admin');
+              adminUser.local.admin    = true;
+
+              adminUser.save(function(err) {
+                        if (err)
+                            throw err;
+
+                        // if successful, return the new user
+                        return;
+                    });
+            }
+        return;
+        });
 
 require('./config/passport')(passport);
 
