@@ -10,8 +10,7 @@ import { LoginComponent } from './components/login-component/login-component';
 import { UserService } from './services/user-service';
 
 const appRoutes: Routes = [
-  { path: '',   redirectTo: '/profile', pathMatch: 'full' },
-  { path: 'profile', component: MainComponent },
+  { path: '', component: MainComponent },
   { path: 'login', component: LoginComponent }
 ];
 
