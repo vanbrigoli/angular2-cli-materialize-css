@@ -19,8 +19,7 @@
             <label>Password</label>
             <input [(ngModel)]="password" type="password" class="form-control" name="password" required>
         </div>
-            
-        <a type="submit" class="btn btn-primary btn-block" [class.disabled]="!loginForm.form.valid"><i class="material-icons right">send</i>Login</a>
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.form.valid"><i class="material-icons right">send</i>Login</button>
         <p class="center-align">Or</p>
         <blockquote>
             Signin using<a href="/auth/facebook"> <strong>facebook</strong>.</a>

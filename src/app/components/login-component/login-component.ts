@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { Router } from '@angular/router';
 import { UserService } from './../../services/user-service';
+declare var jQuery: any;
 
 @Component({
   selector: 'app-login-component',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   private username: String;
   private password: String;
   
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private _elRef: ElementRef) { }
 
   ngOnInit() {
   }
@@ -30,5 +31,4 @@ export class LoginComponent implements OnInit {
                   }
                 );
   }
-
 }
