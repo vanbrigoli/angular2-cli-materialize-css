@@ -1,8 +1,13 @@
 <!-- LOGIN FORM -->
   <div class="login-main">
+     <div [hidden]="unauthorized" class="card-panel red lighten-1 center-align">
+          <span class="white-text">
+              Username or password is invalid!
+          </span>
+        </div>
     <div class="card">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="http://materializecss.com/images/office.jpg">
+      <img class="activator responsive-img" src="assets/images/office.jpg">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">Login to Accrefy<i class="material-icons right">send</i></span>
@@ -10,7 +15,6 @@
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">Accrefy<i class="material-icons right">close</i></span>
       <form (ngSubmit)="onSubmit()" #loginForm="ngForm" id="login-main-form">
-        <div [hidden]="unauthorized">Unauthorized</div>
         <div class="form-group input-field">
             <label>Username</label>
             <input [(ngModel)]="username" type="text" class="form-control" name="username" required>
@@ -19,7 +23,7 @@
             <label>Password</label>
             <input [(ngModel)]="password" type="password" class="form-control" name="password" required>
         </div>
-        <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.form.valid"><i class="material-icons right">send</i>Login</button>
+        <button type="submit" class="btn btn-primary btn-block-size" [disabled]="!loginForm.form.valid"><i class="material-icons right">send</i>Login</button>
         <p class="center-align">Or</p>
         <blockquote>
             Signin using<a href="/auth/facebook"> <strong>facebook</strong>.</a>

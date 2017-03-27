@@ -1,19 +1,24 @@
-a.disabled {
-    color: gray;
-    cursor: not-allowed;
-    text-decoration: none;
-}
-
 .login-main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     resize: both;
     overflow: auto;
 
-    #login-main-form {
+    .card-panel {
+        order: 1;
+        padding: 7px;
+        min-width: 400px;
+    }
+    .card {
+        order: 2;
         min-width: 300px;
+
+        .btn-block-size {
+            width: 100%;
+        }
     }
 
     img {
