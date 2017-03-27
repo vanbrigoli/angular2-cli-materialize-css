@@ -1,6 +1,15 @@
 <!-- LOGIN FORM -->
-<div class="login-main">
-    <form (ngSubmit)="onSubmit()" #loginForm="ngForm" id="login-main-form">
+  <div class="login-main">
+    <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="http://materializecss.com/images/office.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Login to Accrefy<i class="material-icons right">send</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Accrefy<i class="material-icons right">close</i></span>
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm" id="login-main-form">
         <div [hidden]="unauthorized">Unauthorized</div>
         <div class="form-group input-field">
             <label>Username</label>
@@ -12,11 +21,11 @@
         </div>
             
         <a type="submit" class="btn btn-primary btn-block" [class.disabled]="!loginForm.form.valid"><i class="material-icons right">send</i>Login</a>
-        <hr>
+        <p class="center-align">Or</p>
         <blockquote>
-            Or signin using
+            Signin using<a href="/auth/facebook"> <strong>facebook</strong>.</a>
         </blockquote>
-        <a href="/auth/facebook" class="btn btn-primary btn-block"><span class="fa fa-facebook"></span> Facebook</a>
     </form>
+    </div>
+  </div>
 </div>
-

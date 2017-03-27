@@ -9,8 +9,15 @@ a.disabled {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    resize: both;
+    overflow: auto;
 
     #login-main-form {
         min-width: 300px;
+    }
+
+    img {
+        height: 300px;
+        width: 400px;
     }
 }
