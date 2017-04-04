@@ -37,6 +37,10 @@ export class LoginComponent implements OnInit {
     // this.password = null;
   }
 
+  hideMessage() {
+    this.authorized = true;
+  }
+
   showMessage() {
     return this.authorized ? "hidden" : "";
   }
