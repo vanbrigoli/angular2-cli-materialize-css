@@ -27,15 +27,14 @@ export class LoginComponent implements OnInit {
                     this.router.navigate(['/']);
                   },
                   err => {
-                    this.clear();
                     this.authorized = false;
                   }
                 );
   }
 
   clear() {
-    this.username = null;
-    this.password = null;
+    // this.username = null;
+    // this.password = null;
   }
 
   showMessage() {

@@ -9,21 +9,20 @@
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor",
-    "postinstall": "ng build --prod",
-    "preinstall": "npm install -g @angular/cli"
+    "e2e": "protractor"
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "2.2.3",
-    "@angular/compiler": "2.2.3",
+    "@angular/cli": "^1.0.0",
+    "@angular/common": "^4.0.1",
+    "@angular/compiler": "^4.0.1",
+    "@angular/compiler-cli": "^4.0.1",
     "@angular/core": "^4.0.1",
-    "@angular/forms": "2.2.3",
-    "@angular/http": "2.2.3",
-    "@angular/material": "^2.0.0-beta.2",
-    "@angular/platform-browser": "2.2.3",
-    "@angular/platform-browser-dynamic": "2.2.3",
-    "@angular/router": "3.2.3",
+    "@angular/forms": "^4.0.1",
+    "@angular/http": "^4.0.1",
+    "@angular/platform-browser": "^4.0.1",
+    "@angular/platform-browser-dynamic": "^4.0.1",
+    "@angular/router": "^4.0.1",
     "@types/node": "^6.0.63",
     "bcrypt-nodejs": "latest",
     "body-parser": "^1.16.1",
@@ -42,13 +41,12 @@
     "passport": "~0.1.17",
     "passport-facebook": "^2.1.1",
     "passport-local": "~0.1.6",
-    "rxjs": "^5.1.1",
+    "rxjs": "^5.3.0",
     "ts-helpers": "^1.1.1",
-    "zone.js": "^0.6.23"
+    "typescript": "^2.0.10",
+    "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "^1.0.0-rc.1",
-    "@angular/compiler-cli": "2.2.3",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
     "codelyzer": "~2.0.0-beta.1",
@@ -67,7 +65,6 @@
     "protractor": "4.0.9",
     "ts-node": "1.2.1",
     "tslint": "^4.0.2",
-    "typescript": "^2.0.10",
     "webdriver-manager": "10.2.5"
   }
 }
