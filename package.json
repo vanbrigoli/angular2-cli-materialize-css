@@ -10,14 +10,14 @@
     "test": "ng test",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
-    "postinstall": "ng build",
+    "postinstall": "ng build --prod",
     "preinstall": "npm install -g @angular/cli"
   },
   "private": true,
   "dependencies": {
     "@angular/common": "2.2.3",
     "@angular/compiler": "2.2.3",
-    "@angular/core": "2.4.6",
+    "@angular/core": "2.2.3",
     "@angular/forms": "2.2.3",
     "@angular/http": "2.2.3",
     "@angular/material": "^2.0.0-beta.2",
@@ -67,7 +67,7 @@
     "protractor": "4.0.9",
     "ts-node": "1.2.1",
     "tslint": "^4.0.2",
-    "typescript": "~2.0.3",
+    "typescript": "^2.0.10",
     "webdriver-manager": "10.2.5"
   }
 }
