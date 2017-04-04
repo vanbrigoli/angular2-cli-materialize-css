@@ -4,11 +4,13 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "ng build && node server.js",
+    "ng": "ng",
+    "start": "node server.js",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "postinstall": "ng build"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +33,7 @@
     "express": "^4.14.1",
     "express-session": "~1.0.0",
     "jquery": "^3.1.1",
+    "lusca": "^1.4.1",
     "materialize-css": "^0.98.0",
     "method-override": "~1.0.0",
     "mongoose": "^4.8.2",

@@ -23,7 +23,7 @@ module.exports = function(app, passport) {
 
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/callback',
-        passport.authenticate('facebook', { failureRedirect: '/login' }), function(req, res) {
+        passport.authenticate('facebook', { failureRedirect: '/login' }), function(req, res){
             res.redirect('/');
-    });
+        });
 }

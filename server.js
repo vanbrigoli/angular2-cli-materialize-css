@@ -8,12 +8,13 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const lusca = require('lusca');
 
 // load database config
 const configDB = require('./config/database.js');
 
-// load up the user model
-var User = require('./server/models/users');
+// load Setup
+const setup = require('./config/setup.js');
 
 // Get our API routes
 const api = require('./server/routes/api.js');
@@ -21,32 +22,10 @@ const api = require('./server/routes/api.js');
 const app = express();
 
 // connect to our database
-mongoose.connect(configDB.url);
+mongoose.connect(process.env.MONGODB_URI || configDB.url);
 
 // save admin user at start
-User.findOne({ 'local.username' :  'admin' }, function(err, user) {
-            // if there are any errors, return the error before anything else
-            if (err)
-                console.error('Error', err);
-
-            // if no user is found
-            if (!user){
-              var adminUser = new User();
-
-              adminUser.local.username = 'admin';
-              adminUser.local.password = adminUser.generateHash('admin');
-              adminUser.local.admin    = true;
-
-              adminUser.save(function(err) {
-                        if (err)
-                            throw err;
-
-                        // if successful, return the new user
-                        return;
-                    });
-            }
-        return;
-        });
+setup.setAdmin();
 
 require('./config/passport')(passport);
 
@@ -54,15 +33,26 @@ require('./config/passport')(passport);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(morgan('dev'));
+app.use(morgan('dev')); // log api calls
+app.use(session({
+	secret: 'bogoaccrefied7',
+	resave: true,
+	saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+// Setup node security
+app.use(lusca({
+    csrf: {angular: true},
+    xframe: 'SAMEORIGIN',
+    p3p: 'ABCDEF',
+    hsts: {maxAge: 31536000, includeSubDomains: true, preload: true},
+    xssProtection: true,
+    nosniff: true
+}));
 
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
-
-app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
-
 
 // Set our api routes
 require('./server/routes/login.js')(app, passport);

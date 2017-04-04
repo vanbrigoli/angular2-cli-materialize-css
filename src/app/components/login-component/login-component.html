@@ -1,6 +1,6 @@
 <!-- LOGIN FORM -->
   <div class="login-main">
-     <div [hidden]="unauthorized" class="card-panel red lighten-1 center-align">
+     <div [style.visibility]="showMessage()" class="card-panel red lighten-1 center-align">
           <span class="white-text">
               Username or password is invalid!
           </span>
@@ -13,7 +13,7 @@
       <span class="card-title activator grey-text text-darken-4">Login to Accrefy<i class="material-icons right">send</i></span>
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Accrefy<i class="material-icons right">close</i></span>
+      <span class="card-title grey-text text-darken-4" (click)="hideMessage()">Accrefy<i class="material-icons right">close</i></span>
       <form (ngSubmit)="onSubmit()" #loginForm="ngForm" id="login-main-form">
         <div class="form-group input-field">
             <label>Username</label>

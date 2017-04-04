@@ -10,7 +10,7 @@ declare var jQuery: any;
   styleUrls: ['./login-component.scss']
 })
 export class LoginComponent implements OnInit {
-  private unauthorized: Boolean = true;
+  private authorized: Boolean = true;
   private username: String;
   private password: String;
   
@@ -23,12 +23,22 @@ export class LoginComponent implements OnInit {
     this.userService.authenticate(this.username, this.password)
                 .subscribe(
                   res => {
-                    this.unauthorized = true;
+                    this.authorized = true;
                     this.router.navigate(['/']);
                   },
                   err => {
-                    this.unauthorized = false;
+                    this.clear();
+                    this.authorized = false;
                   }
                 );
+  }
+
+  clear() {
+    this.username = null;
+    this.password = null;
+  }
+
+  showMessage() {
+    return this.authorized ? "hidden" : "";
   }
 }
