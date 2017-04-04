@@ -9,9 +9,7 @@
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor",
-    "postinstall": "ng build"
-    //"preinstall": "npm install -g @angular/cli"
+    "e2e": "protractor"
   },
   "private": true,
   "dependencies": {
