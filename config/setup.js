@@ -14,7 +14,7 @@ module.exports = {
                 var adminUser = new User();
 
                 adminUser.local.username = ADMIN;
-                adminUser.local.password = adminUser.generateHash(ADMIN);
+                adminUser.local.password = adminUser.generateHash('Bogoaccrefied7');
                 adminUser.local.admin    = true;
 
                 adminUser.save(function(err) {
