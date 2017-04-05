@@ -1,5 +1,5 @@
 var User = require('./../server/models/users');
-const ADMIN = 'admin';
+const ADMIN = 'accrefy';
 
 module.exports = {
     // save admin user at start
