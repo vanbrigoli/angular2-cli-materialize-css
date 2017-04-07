@@ -1,5 +1,6 @@
 var User = require('./../server/models/users');
 const ADMIN = 'accrefy';
+const EMAIL = 'accrefy@gmail.com';
 
 module.exports = {
     // save admin user at start
@@ -15,6 +16,7 @@ module.exports = {
 
                 adminUser.local.username = ADMIN;
                 adminUser.local.password = adminUser.generateHash('Bogoaccrefied7');
+                adminUser.local.email = EMAIL;
                 adminUser.local.admin    = true;
 
                 adminUser.save(function(err) {

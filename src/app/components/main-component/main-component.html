@@ -4,8 +4,9 @@
   <div class="nav-wrapper container">
     <a id="logo-container" href="#" class="brand-logo">Logo</a>
     <ul class="right hide-on-med-and-down">
-      <li><a>{{testName}}</a></li>
+      <li [hidden]="loggedIn"><a>{{displayName}}</a></li>
       <li [hidden]="loggedIn" (click)="userLogout()"><a >Logout</a></li>
+      <li [hidden]="!loggedIn"><a href="/login">Login</a></li>
     </ul>
 <!--MOBILE VIEW-->
     <ul id="nav-mobile" class="side-nav">
@@ -14,16 +15,12 @@
         <img src="assets/images/person.jpg">
       </div>
       <a href="#!user"><img class="circle" src="assets/images/relax.jpeg"></a>
-      <a href="#!name"><span class="white-text name">{{testName}}</span></a>
-      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+      <a href="#!name"><span class="white-text name">{{displayName}}</span></a>
+      <a href="#!email"><span class="white-text email"></span>{{email}}</a>
     </div></li>
       <li [hidden]="unauthorized" (click)="userLogout()"><a >Logout</a></li>
-      <li><a href="#!">Second Link</a></li>
-      <li><div class="divider"></div></li>
-      <li><a class="subheader">Subheader</a></li>
-      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
     </ul>
-    <a data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    <a [hidden]="loggedIn" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
   </div>
 </nav>
 <!--PARALLAX IMG 1-->

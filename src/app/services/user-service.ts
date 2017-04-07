@@ -30,16 +30,19 @@ export class UserService {
   getUser() {
     let name;
     let rights;
+    let email;
     return this.http.get('/getUser')
       .map(res => {
-        if(res.json().user.facebook){
+        if(res.json().user.facebook){ 
           name = res.json().user.facebook.name;
+          email = res.json().user.facebook.email;
           rights = false;
         }else {
           name = res.json().user.local.username;
+          email = res.json().user.local.email;
           rights = res.json().user.local.admin;
         }
-        return new User(name, rights);
+        return new User(name, email, rights);
       })
       .catch(this.handleError);
   }

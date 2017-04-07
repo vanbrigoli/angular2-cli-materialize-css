@@ -10,7 +10,8 @@ declare var jQuery: any;
   styleUrls: ['./main-component.scss']
 })
 export class MainComponent implements OnInit, AfterViewInit {
-  private testName: String = 'Test Only';
+  private displayName: String;
+  private email: String;
   private loggedIn: Boolean = true;
   private admin: Boolean = false;
 
@@ -21,7 +22,8 @@ export class MainComponent implements OnInit, AfterViewInit {
     this.userService.getUser()
         .subscribe(
           res => {
-            this.testName = res.name;
+            this.displayName = res.name;
+            this.email = res.email;
             this.loggedIn = false;
             this.admin = res.admin;
           },
